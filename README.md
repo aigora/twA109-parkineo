@@ -10,9 +10,9 @@ se comunican con el ordenador para mostrar en pantalla las plazas libres y ocupa
 
 Nombres, apellidos, y usuario GitHub de los integrantes del equipo.
 
-Maurizio Lo Truglio @mlotruglio
-Víctor Rodríguez @victorrodriguezsanchez
-Óscar Rudek @oscarrudek
+* Maurizio Lo Truglio @mlotruglio
+* Víctor Rodríguez @victorrodriguezsanchez
+* Óscar Rudek @oscarrudek
 
 ## Objetivos del trabajo
 
