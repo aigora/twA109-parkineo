@@ -18,5 +18,6 @@ Realmente nuestro objetivo no es agilizar el proceso de aparcamiento, sino que p
 * Sensores de proximidad para las plazas (4)
 * LEDs verdes y rojos para indicar el estado de las plazas (4 de cada color)
 * Servomotores para las barreras (2)
+* Sensores de movimiento para controlar las barreras (4)
 * LEDs verde y rojo que funcionen como semáforo en la barrera de entrada (1 de cada color)
 * Arduino para controlar y relacionar todo el sistema
