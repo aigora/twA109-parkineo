@@ -1,8 +1,8 @@
-# Parking inteligente
+﻿# Parking inteligente
 
 Nuestro proyecto consiste en construir y programar un parking con sensores de proximidad para detectar el estado de las plazas, además de implementar unas barreras automáticas para controlar mejor la transición entre la entrada y salida de los coches. Estos sensores se comunican con el ordenador para mostrar un contador de las plazas libres.
 
-## Integrantes del equipo
+## Integrantes del equipo .
 
 * Maurizio Lo Truglio @mlotruglio
 * Víctor Rodríguez @victorrodriguezsanchez
