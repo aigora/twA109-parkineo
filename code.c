@@ -2,10 +2,13 @@
 
 #define verde1 2
 #define rojo1 3
+#define ir1
 #define verde2 4
 #define rojo2 5
+#define ir2
 #define verde3 6
 #define rojo3 7
+#define ir3
 #define semaforoverde 8
 #define semafororojo 9
 #define servoentrada 10
@@ -53,6 +56,7 @@ void loop()
             myservoent.write(i);
             delay(25);
         }
+        plazaslibres--;
     }
     else{
         digitalWrite(semafororojo, HIGH);
