@@ -41,25 +41,27 @@ void loop()
     int plazaslibres=3;
     int valorirentrada=0;
     int i=0;
-    valorirentrada=digitalRead(irentrada);
-    if(valorirentrada&&plazaslibres){
-        digitalWrite(semafororojo, LOW);
-        digitalWrite(semaforoverde, HIGH);
-        for(i=0;i<=60;i++){
-            myservoent.write(i);
-            delay(25);
+    do{
+        valorirentrada=digitalRead(irentrada);
+        if(valorirentrada&&plazaslibres){
+            digitalWrite(semafororojo, LOW);
+            digitalWrite(semaforoverde, HIGH);
+            for(i=0;i<=60;i++){
+                myservoent.write(i);
+                delay(25);
+            }
+            delay(2000);
+            digitalWrite(semafororojo, HIGH);
+            digitalWrite(semaforoverde, LOW);
+            for(i=60;i>=0;i--){
+                myservoent.write(i);
+                delay(25);
+            }
+            plazaslibres--;
         }
-        delay(2000);
-        digitalWrite(semafororojo, HIGH);
-        digitalWrite(semaforoverde, LOW);
-        for(i=60;i>=0;i--){
-            myservoent.write(i);
-            delay(25);
+        else{
+            digitalWrite(semafororojo, HIGH);
+            digitalWrite(semaforoverde, LOW);
         }
-        plazaslibres--;
-    }
-    else{
-        digitalWrite(semafororojo, HIGH);
-        digitalWrite(semaforoverde, LOW);
-    }
+    }while(1);
 }
