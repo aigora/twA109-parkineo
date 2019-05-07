@@ -61,28 +61,28 @@ int barreras(int pocupadas){
 }
 void plazas(){
   if(analogRead(ir1)<=100){
-    digitalWrite(rojo1,HIGH);
+    analogWrite(rojo1,100);
     digitalWrite(verde1,LOW);
   }
   if(analogRead(ir2)<=100){
-    digitalWrite(rojo2,HIGH);
+    analogWrite(rojo2,100);
     digitalWrite(verde2,LOW);
   }
   if(analogRead(ir3)<=100){
-    digitalWrite(rojo3,HIGH);
+    analogWrite(rojo3,100);
     digitalWrite(verde3,LOW);
-  }
+ 
   if(analogRead(ir1)>100){
     digitalWrite(rojo1,LOW);
-    digitalWrite(verde1,HIGH);
+    analogWrite(verde1,100);
   }
   if(analogRead(ir2)>100){
     digitalWrite(rojo2,LOW);
-    digitalWrite(verde2,HIGH);
+    analogWrite(verde2,100);
   }
   if(analogRead(ir3)>100){
     digitalWrite(rojo3,LOW);
-    digitalWrite(verde3,HIGH);
+    analogWrite(verde3,100);
   }
 }
 
