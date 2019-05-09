@@ -1,11 +1,11 @@
-/*
-* Author: Manash Kumar Mandal
-* Modified Library introduced in Arduino Playground which does not work
-* This works perfectly
-* LICENSE: MIT
-*/
-
 #include "SerialPort.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_DATA_LENGTH 255
+
+void autoConnect(SerialPort *arduino,char*);
 
 void Crear_Conexion(SerialPort *PuertoSerie, char *portName)
 {
@@ -59,6 +59,31 @@ void Crear_Conexion(SerialPort *PuertoSerie, char *portName)
         }
     }
     return ;
+}
+
+void autoConnect(SerialPort *arduino,char *incomingData)
+{
+	char sendData = 0;
+	// Espera la conexión con Arduino
+	while (!isConnected(arduino))
+	{
+	Sleep(100);
+	Crear_Conexion(arduino,arduino->portName);
+	}
+	//Comprueba si arduino está connectado
+	if (isConnected(arduino))
+	{
+	printf ("Conectado con Arduino en el puerto %s\n",arduino->portName);
+	}
+	// Bucle de la aplicación (Poner nuestro buble del proyecto)
+	printf ("0 - LED OFF, 1 - LED ON, 9 - SALIR");
+	while (isConnected(arduino) && sendData!='9')
+	{
+	sendData = getch();
+	writeSerialPort(arduino,&sendData, sizeof(char));
+	}
+	if (!isConnected(arduino))
+	printf ("Se ha perdido la conexión con Arduino\n");
 }
 
 void CerrarConexion(SerialPort * PuertoSerie)
