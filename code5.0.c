@@ -45,6 +45,7 @@ void loop(){
     semaforo(plazasocupadas);
     if(plazasocupadas>max)plazasocupadas=max;
     if(plazasocupadas<0)plazasocupadas=0;
+    // Enviar variable plazasocupadas al ordenador para mostrarlas en pantalla
 }
 
 int barreras(int pocupadas){
