@@ -20,10 +20,10 @@ void main(void){
 }
 void autoConnect(SerialPort *arduino,char *incomingData){
     FILE *salida;
-    time_t tiempo = time(0);
-    struct tm *tlocal = localtime(&tiempo);
-    char output[128];
-	int plazasocupadas,p1,p2,p3,i,p1aux=0,p2aux=0,p3aux=0;
+    time_t t;
+    struct tm *tm;
+    char output[100];
+	int plazasocupadas,p1,p2,p3,i,p1aux=0,p2aux=0,p3aux=0,plazasocupadasaux=0;
 	char readResult[MAX_DATA_LENGTH];
 	while (!isConnected(arduino)){ // Espera la conexión con Arduino
 		printf("Esperando la conexion con Arduino");
@@ -43,6 +43,8 @@ void autoConnect(SerialPort *arduino,char *incomingData){
         if(salida==NULL) printf("No se ha podido abrir el fichero\n");
         else{
             fprintf(salida,"HISTORIAL PARKING\n");
+            fprintf(salida,"|   Total coches   |               Plaza               |     Fecha y hora      |\n"); 
+			fprintf(salida,"|     interior     |     1     |     2     |     3     |                       |\n");
         }
 	}
 	else printf ("Se ha perdido la conexion con Arduino\n");
@@ -53,20 +55,21 @@ void autoConnect(SerialPort *arduino,char *incomingData){
 		p1=incomingData[1]-'0';
 		p2=incomingData[2]-'0';
 		p3=incomingData[3]-'0';
-        strftime(output,128,"%d/%m/%y %H:%M:%S",tlocal);
         if(plazasocupadas>=0&&plazasocupadas<=3){
             printf("|        %d       ",plazasocupadas);
             if(salida==NULL) printf("No se ha podido abrir el fichero\n");
-            else if(p1aux!=p1||p2aux!=p2||p3aux!=p3){
-                fprintf(salida,"Numero de coches dentro: %d. Estado de las plazas: ",plazasocupadas);
-                if(p1==1)fprintf(salida,"1 - Ocupada ");
-                else fprintf(salida,"1 - Libre ");
-                if(p2==1)fprintf(salida,"2 - Ocupada ");
-                else fprintf(salida,"2 - Libre ");
-                if(p3==1)fprintf(salida,"3 - Ocupada.");
-                else fprintf(salida,"3 - Libre.");
-                fprintf(" Fecha y hora: %s\n",output);
-                fclose(salida);
+            else if(plazasocupadasaux!=plazasocupadas||p1aux!=p1||p2aux!=p2||p3aux!=p3){
+                fprintf(salida,"|        %d       ",plazasocupadas);
+                if(p1==1)fprintf(salida,"  |  Ocupada");
+                else fprintf(salida,"  |   Libre ");
+                if(p2==1)fprintf(salida,"  |  Ocupada");
+                else fprintf(salida,"  |   Libre ");
+                if(p3==1)fprintf(salida,"  |  Ocupada  ");
+                else fprintf(salida,"  |   Libre   ");
+                t=time(NULL);
+                tm=localtime(&t);
+                strftime(output,100,"%d/%m/%Y %H:%M:%S",tm);
+                fprintf(salida,"|  %s  |\n",output);
             }
         }
 		else printf("|   Actualizando ");
@@ -76,11 +79,13 @@ void autoConnect(SerialPort *arduino,char *incomingData){
 		else printf("  |   Libre ");
 		if(p3==1) printf("  |  Ocupada  |");
 		else printf("  |   Libre   |");
-		Sleep(500);
+		plazasocupadasaux=plazasocupadas;
 		p1aux=p1;
 		p2aux=p2;
 		p3aux=p3;
+		Sleep(500);
 	}
+	fclose(salida);
 }
 
 void Crear_Conexion(SerialPort *PuertoSerie, char *portName)
