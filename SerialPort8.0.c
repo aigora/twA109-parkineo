@@ -12,7 +12,7 @@ void autoConnect(SerialPort *arduino,char*);
 
 void main(void){
 	SerialPort *arduino; //Arduino SerialPort object
-	char* portName = "\\\\.\\COM5"; // Puerto serie en el que está Arduino
+	char* portName = "\\\\.\\COM5"; // Puerto serie en el que estÃ¡ Arduino
 	char incomingData[MAX_DATA_LENGTH]; // Buffer para datos procedentes de Arduino
 	arduino = (SerialPort *)malloc(sizeof(SerialPort)); // Crear estructura de datos del puerto serie
 	Crear_Conexion(arduino,portName);
@@ -23,9 +23,9 @@ void autoConnect(SerialPort *arduino,char *incomingData){
     time_t t;
     struct tm *tm;
     char output[100];
-	int plazasocupadas,p1,p2,p3,i,p1aux=0,p2aux=0,p3aux=0,plazasocupadasaux=0;
+	int plazasocupadas,p1,p2,p3,p1aux=0,p2aux=0,p3aux=0,plazasocupadasaux=0;
 	char readResult[MAX_DATA_LENGTH];
-	while (!isConnected(arduino)){ // Espera la conexión con Arduino
+	while (!isConnected(arduino)){ // Espera la conexiÃ³n con Arduino
 		printf("Esperando la conexion con Arduino");
 		Sleep(100);
 		Crear_Conexion(arduino,arduino->portName);
