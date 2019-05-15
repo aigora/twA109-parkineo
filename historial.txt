@@ -1,0 +1,17 @@
+HISTORIAL PARKING
+
+|   Total coches   |               Plaza               |     Fecha y hora      |
+|     interior     |     1     |     2     |     3     |                       |
+|        0         |   Libre   |   Libre   |   Libre   |  15/05/2019 11:50:58  |
+|        1         |   Libre   |   Libre   |   Libre   |  15/05/2019 11:52:36  |
+|        1         |   Libre   |  Ocupada  |   Libre   |  15/05/2019 11:52:39  |
+|        2         |   Libre   |  Ocupada  |   Libre   |  15/05/2019 11:52:51  |
+|        2         |   Libre   |  Ocupada  |  Ocupada  |  15/05/2019 11:52:51  |
+|        3         |   Libre   |  Ocupada  |  Ocupada  |  15/05/2019 11:53:01  |
+|        3         |  Ocupada  |  Ocupada  |  Ocupada  |  15/05/2019 11:53:04  |
+|        1         |  Ocupada  |   Libre   |  Ocupada  |  15/05/2019 11:53:07  |
+|        3         |  Ocupada  |  Ocupada  |  Ocupada  |  15/05/2019 11:53:08  |
+|        3         |   Libre   |  Ocupada  |  Ocupada  |  15/05/2019 11:53:22  |
+|        2         |   Libre   |  Ocupada  |  Ocupada  |  15/05/2019 11:53:31  |
+|        3         |   Libre   |  Ocupada  |  Ocupada  |  15/05/2019 11:53:41  |
+|        3         |  Ocupada  |  Ocupada  |  Ocupada  |  15/05/2019 11:53:45  |
